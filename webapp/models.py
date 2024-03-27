@@ -6,10 +6,13 @@ class Note(db.Model):
     """Represents a note in the application."""
 
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))  # Add the title column
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
+    image_data = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     comments = db.relationship('Comment', backref='note', lazy=True)
+
 
 class User(db.Model, UserMixin):
     """Represents a user in the application."""

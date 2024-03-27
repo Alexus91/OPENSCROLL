@@ -79,17 +79,23 @@
             <section id="blog" class="blog">
                 <div class="container accordion-button">
                     <div class="row">
-                        <div class="row-cols-md-1">
+                        <div class="row-cols-md-0">
                             <!-- Loop through public posts -->
                             {% for post in public_posts|reverse %}
                             <div class="note-container">
                                 <!-- Card for displaying the public post content -->
-                                <div class="card">
+                                <div class="card" width="90px">
                                     <div class="card-body">
                                         <!-- Display the public post content -->
-                                        <p>Author: {{ authors[post.id] }}</p>
-                                        <p>{{ post.data }}</p>
+                                        <h5>Author: {{ authors[post.id] }}</h5>
+                                        <h1>{{ post.title }}</h1>
+                                        <p style="font-family: 'Roboto', sans-serif, ;">
+                                            <h10>{{ post.data }}</h10>
+                                        </p>
+                                        {% if post.image_data %}
+                                        <img src="data:image/png;base64,{{ post.image_data }}" alt="Post Image" width="100%"> {% endif %}
                                         <p>Posted on: {{ post.date.strftime('%Y-%m-%d %H:%M') }}</p>
+
 
                                     </div>
                                 </div>
@@ -101,7 +107,8 @@
                                         {% for comment in post.comments %}
                                         <li class="comment">
                                             <!-- Display the commenter's name along with the comment content -->
-                                            <p>{{ comment.commenter_name }}: {{ comment.content }}</p>
+                                            <p>
+                                                <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }}</p>
                                         </li>
                                         {% endfor %}
                                     </ul>
@@ -118,7 +125,7 @@
                                             <div class="form-group mt-3">
                                                 <textarea name="content" rows="2" placeholder="Add a comment*"></textarea>
                                             </div>
-                                            <div style="position: relative; z-index: 1;" class="form-group mt-3">
+                                            <div style="position: relative; z-index: 1;" class="form-group mt-md-2">
                                                 <button type="submit" class="btn btn-primary" style="background: #437d9c;">Comment</button>
                                             </div>
                                         </div>

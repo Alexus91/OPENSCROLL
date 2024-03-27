@@ -1,3 +1,4 @@
+import base64
 from flask import Blueprint, redirect, render_template, request, flash, jsonify, url_for
 from flask_login import login_required, current_user
 from .models import Note, Comment, User
@@ -27,12 +28,18 @@ def home():
         str: Rendered home page HTML.
     """
     if request.method == 'POST': 
+        title = request.form.get('title')
         note = request.form.get('note')
+        image = request.files.get('image')
 
         if len(note) < 1:
-            flash('Note is too short!', category='error') 
+            flash('Note is too short!', category='error')
+        elif not image:
+            flash('Please upload an image!', category='error')
         else:
-            new_note = Note(data=note, user_id=current_user.id)  
+            # Read the image file and encode it as base64
+            image_data = base64.b64encode(image.read()).decode('utf-8')
+            new_note = Note(title=title, data=note, image_data=image_data, user_id=current_user.id)
             db.session.add(new_note)
             db.session.commit()
             flash('Note added!', category='success')

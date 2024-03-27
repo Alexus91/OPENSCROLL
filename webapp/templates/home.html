@@ -1,4 +1,4 @@
- {% extends "base.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
+{% extends "base.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -8,7 +8,7 @@
 <div class="card mt-lg-5">
     <div class="card-body">
         <!-- Form for submitting a new note -->
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <!-- Input field for entering the note title -->
             <div class="mb-3">
                 <input type="text" name="title" id="title" class="form-control" placeholder="Title">
@@ -16,6 +16,10 @@
             <!-- Textarea for entering the note content -->
             <div class="mb-3">
                 <textarea name="note" id="note" class="form-control" placeholder="Share an update, {{ user.username }}"></textarea>
+            </div>
+            <!-- Input field for uploading images -->
+            <div class="mb-3">
+                <input type="file" name="image" id="image" class="form-control">
             </div>
             <!-- Submit button aligned to the right -->
             <div class="text-end">
