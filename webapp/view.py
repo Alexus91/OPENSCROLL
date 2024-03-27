@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template, request, flash, jsonify, url_for
 from flask_login import login_required, current_user
-from .models import Note, Comment
+from .models import Note, Comment, User
 from . import db
 import json
 
@@ -111,6 +111,6 @@ def blog():
     Returns:
         str: Rendered blog page HTML.
     """
-    public_posts = Note.query.all()  # You might need to adjust this query based on your specific requirements
+    # Select the attributes you need explicitly
+    public_posts = db.session.query(Note.data, Note.date, User.first_name).join(User).all()
     return render_template("blog.html", user=current_user, public_posts=public_posts)
-

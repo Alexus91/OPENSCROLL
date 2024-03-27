@@ -87,6 +87,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <!-- Display the public post content -->
+                                        <p>Author: {{ post.first_name }}</p>
                                         <p>{{ post.data }}</p>
                                         <p>Posted on: {{ post.date.strftime('%Y-%m-%d %H:%M') }}</p>
 
