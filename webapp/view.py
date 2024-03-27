@@ -112,6 +112,5 @@ def blog():
         str: Rendered blog page HTML.
     """
     public_posts = Note.query.all()  # You might need to adjust this query based on your specific requirements
-e
     return render_template("blog.html", user=current_user, public_posts=public_posts)
 

@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %}Home - FreePost{% endblock %} {% block content %}
+
+<!-- Extend the base template and set the page title to "Home - FreePost" -->
+
+<!-- ======= Hero Section ======= -->
+
+<!-- Slide 1 -->
+<div class="carousel-item active">
+    <div class="carousel-container">
+        <h3 align="center"></h3>
+        <h2 class="animate__animated animate__fadeInDown">Sign in</h2>
+
+        <form method="POST">
+            <!-- Form for user login -->
+
+            <h3 align="center"></h3>
+            <!-- Empty heading with center alignment -->
+
+            <div class="form-group">
+                <!-- Form group for the email input -->
+                <label for="email"></label>
+                <!-- Empty label (for better accessibility) -->
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+                <!-- Email input field with placeholder text -->
+            </div>
+
+            <div class="form-group">
+                <!-- Form group for the password input -->
+                <label for="password"></label>
+                <!-- Empty label (for better accessibility) -->
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" />
+                <!-- Password input field with placeholder text -->
+            </div>
+
+            <div class="form-check">
+                <!-- Form check for the "Remember me" checkbox -->
+                <input class="form-check-input" type="checkbox" id="checkbox" data-bs-theme="light">
+                <!-- Checkbox input with a light theme -->
+                <label class="form-check-label" for="checkbox" style="font-size: 12px;">
+                            Remember me
+                        </label>
+                <!-- Label for the checkbox with custom font size -->
+            </div>
+            <div style="position: relative; z-index: 1;">
+                <form id="loginForm" method="POST" action="/login">
+                    <button type="submit" class="btn-get-started animate__animated animate__fadeInUp" style="background: #549bc2;">Sign in</button>
+                </form>
+            </div>
+
+
+
+            <!-- Submit button for the login form with primary button style -->
+        </form>
+        <!-- "Button" to submit the form with animation -->
+        </section>
+
+        <!-- End Hero -->
+
+        {% endblock %}
