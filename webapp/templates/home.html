@@ -1,0 +1,61 @@
+ {% extends "base.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<h2 class="animate__animated animate__fadeInDown">Writer session </h2>
+
+<!-- Card for the note input form -->
+<div class="card mt-lg-5">
+    <div class="card-body">
+        <!-- Form for submitting a new note -->
+        <form method="POST">
+            <!-- Input field for entering the note title -->
+            <div class="mb-3">
+                <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+            </div>
+            <!-- Textarea for entering the note content -->
+            <div class="mb-3">
+                <textarea name="note" id="note" class="form-control" placeholder="Share an update, {{ user.username }}"></textarea>
+            </div>
+            <!-- Submit button aligned to the right -->
+            <div class="text-end">
+                <button type="submit" class="btn-get-started animate__animated animate__fadeInUp" style="background: #549bc2;">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- List of notes displayed as a flush list group -->
+<ul class="list-group list-group-flush" id="notes">
+    <!-- Loop through user's notes in reverse order -->
+    {% for note in user.notes|reverse %}
+    <!-- List item for each note -->
+    <li class="list-group-item">
+        <!-- Card for displaying the note content -->
+        <div class="card">
+            <div class="card-body">
+                <!-- Display the note content -->
+                {{ note.data }}
+            </div>
+            <!-- Trigger the deleteNote JavaScript function when clicking on the note -->
+            <div style="position: relative; z-index: 1;">
+                <a href="#" onclick="deleteNote({{ note.id }})" class="btn-get-started " style="background: #b91e45;">Delete</a>
+            </div>
+
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- End #main -->
+
+</section>
+</div>
+
+
+{% endblock %}
+</main>
+</body>
+
+</html>
