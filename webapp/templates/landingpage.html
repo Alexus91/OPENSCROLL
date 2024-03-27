@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Home - landing page !{% endblock %} {% block content %}
+
+<!-- Extend the base template and set the page title to "Home " -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Openscroll</span></h2>
+                <p class="animate__animated animate__fadeInUp">a cutting-edge blogging platform that empowers users to express themselves freely and connect with a like-minded community. the plathform is designed to provide a seamless and privacy-focused environment for users to share their thoughts,
+                    stories, and ideas without limitations.</p>
+                <a href="/blog" class="btn-get-started animate__animated animate__fadeInUp">Go to the Blog</a>
+            </div>
+        </div>
+</section>
+<!-- End Hero -->
+
+{% endblock %}
