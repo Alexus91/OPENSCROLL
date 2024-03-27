@@ -111,6 +111,13 @@ def blog():
     Returns:
         str: Rendered blog page HTML.
     """
-    # Select the attributes you need explicitly
-    public_posts = db.session.query(Note.data, Note.date, User.first_name).join(User).all()
-    return render_template("blog.html", user=current_user, public_posts=public_posts)
+    # Fetch public posts
+    public_posts = Note.query.all()
+
+    # Fetch authors' names for each post
+    authors = {}
+    for post in public_posts:
+        author = User.query.get(post.user_id)
+        authors[post.id] = author.first_name if author else "Unknown"
+
+    return render_template("blog.html", user=current_user, public_posts=public_posts, authors=authors)
