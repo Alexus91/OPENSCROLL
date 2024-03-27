@@ -1,7 +1,7 @@
 import base64
 from flask import Blueprint, redirect, render_template, request, flash, jsonify, url_for
 from flask_login import login_required, current_user
-from .models import Note, Comment, User
+from .models import Like, Note, Comment, User
 from . import db
 import json
 
@@ -109,6 +109,41 @@ def delete_comment(comment_id):
     db.session.commit()
 
     return jsonify({'success': 'Comment deleted successfully!'})
+@views.route('/like-comment', methods=['POST'])
+def like_comment():
+    """
+    Handle liking a comment.
+
+    Returns:
+        str: JSON response indicating success or failure.
+    """
+    data = request.form
+    comment_id = data.get('comment_id')
+    
+    if not comment_id:
+        return jsonify({'error': 'Invalid comment ID!'})
+
+    comment = Comment.query.get(comment_id)
+    
+    if not comment:
+        return jsonify({'error': 'Comment not found!'})
+
+    like = Like.query.filter_by(comment_id=comment_id, user_id=current_user.id).first()
+
+    if like:
+        db.session.delete(like)
+        db.session.commit()
+        return jsonify({'success': 'Unlike successful!'})
+
+    new_like = Like(comment_id=comment_id, user_id=current_user.id)
+    db.session.add(new_like)
+    db.session.commit()
+
+    return jsonify({'success': 'Like successful!'})
+
+
+
+
 
 @views.route('/blog', methods=['GET'])
 def blog():

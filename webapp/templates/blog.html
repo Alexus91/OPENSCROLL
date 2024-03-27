@@ -89,8 +89,8 @@
                                         <!-- Display the public post content -->
                                         <h5>Author: {{ authors[post.id] }}</h5>
                                         <h1>{{ post.title }}</h1>
-                                        <p style="font-family: 'Roboto', sans-serif, ;">
-                                            <h10>{{ post.data }}</h10>
+                                        <p style="font-family: 'Roboto', Helvetica">
+                                            <h8>{{ post.data }}</h8>
                                         </p>
                                         {% if post.image_data %}
                                         <img src="data:image/png;base64,{{ post.image_data }}" alt="Post Image" width="100%"> {% endif %}
@@ -108,13 +108,20 @@
                                         <li class="comment">
                                             <!-- Display the commenter's name along with the comment content -->
                                             <p>
-                                                <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }}</p>
+                                                <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }}
+                                                <span class="like-count">{{ comment.likes | length }}</span>
+                                                <!-- Button to like/unlike the comment -->
+                                                {% if current_user.is_authenticated %}
+                                                <button class="like-btn" data-comment-id="{{ comment.id }}">Like</button> {% endif %}
+
+                                            </p>
+
                                         </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
                                 <!-- Button to toggle comments visibility -->
-                                <button class="toggle-comments-btn " data-note-id="{{ post.id }}" style="background: #437d9c;">Show Comments</button>
+                                <button class="toggle-comments-btn" data-note-id="{{ post.id }}" style="background: #437d9c; font-size: 10px; padding: 3px 6px; color: white;">Show Comments</button>
                                 <!-- Form for adding new comment -->
                                 <form class="comment-form" action="{{ url_for('views.add_comment') }}" method="post">
                                     <div class="row">
@@ -138,6 +145,45 @@
                 </div>
             </section>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get all like buttons
+                var likeButtons = document.querySelectorAll(".like-btn");
+
+                // Add click event listener to each like button
+                likeButtons.forEach(function(button) {
+                    button.addEventListener("click", function() {
+                        // Get the comment ID
+                        var commentId = button.getAttribute("data-comment-id");
+
+                        // Send a request to your server to record the like
+                        fetch("/like-comment", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                commentId: commentId
+                            }),
+                        }).then(function(response) {
+                            // Handle the response as needed
+                            if (response.ok) {
+                                // Update the UI to reflect the like
+                                button.textContent = "Liked";
+                                button.disabled = true;
+
+                                // Increment the like count in the UI
+                                var likeCountSpan = button.previousElementSibling; // Assuming the span comes before the button
+                                likeCountSpan.textContent = parseInt(likeCountSpan.textContent) + 1;
+                            } else {
+                                // Handle errors
+                                console.error("Failed to like comment");
+                            }
+                        }).catch(function(error) {
+                            console.error("Error:", error);
+                        });
+                    });
+                });
+            });
+        </script>
+
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {

@@ -31,3 +31,11 @@ class Comment(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     commenter_name = db.Column(db.String(150))  # New field for commenter's name
     note_id = db.Column(db.Integer, db.ForeignKey('note.id'))
+    likes = db.relationship('Like', backref='comment', lazy=True)
+class Like(db.Model):
+    """Represents a like on a comment in the application."""
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
+
+
