@@ -81,13 +81,15 @@
                     <div class="row">
                         <div class="row-cols-md-2">
                             <!-- Loop through public posts -->
-                            {% for post in public_posts %}
+                            {% for post in public_posts|reverse %}
                             <div class="note-container">
                                 <!-- Card for displaying the public post content -->
                                 <div class="card">
                                     <div class="card-body">
                                         <!-- Display the public post content -->
                                         <p>{{ post.data }}</p>
+                                        <p>Posted on: {{ post.date.strftime('%Y-%m-%d %H:%M') }}</p>
+
                                     </div>
                                 </div>
                                 <!-- Section for displaying comments -->
