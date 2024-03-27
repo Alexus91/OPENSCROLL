@@ -79,7 +79,7 @@
             <section id="blog" class="blog">
                 <div class="container accordion-button">
                     <div class="row">
-                        <div class="row-cols-md-2">
+                        <div class="row-cols-md-1">
                             <!-- Loop through public posts -->
                             {% for post in public_posts|reverse %}
                             <div class="note-container">
@@ -106,15 +106,21 @@
                                     </ul>
                                 </div>
                                 <!-- Button to toggle comments visibility -->
-                                <button class="toggle-comments-btn" data-note-id="{{ post.id }}">Show Comments</button>
+                                <button class="toggle-comments-btn " data-note-id="{{ post.id }}" style="background: #437d9c;">Show Comments</button>
                                 <!-- Form for adding new comment -->
                                 <form class="comment-form" action="{{ url_for('views.add_comment') }}" method="post">
-                                    <input type="hidden" name="note_id" value="{{ post.id }}">
-                                    <input type="text" name="commenter_name" placeholder="Your Name">
-                                    <!-- Input field for commenter's name -->
-                                    <textarea name="content" rows="2" placeholder="Add a comment"></textarea>
-                                    <div style="position: relative; z-index: 1;">
-                                        <button type="submit" class="btn-get-started animate__animated animate__fadeInUp" style="background: #549bc2;">Comment</button>
+                                    <div class="row">
+                                        <div class="form-group mt-3">
+                                            <input type="hidden" name="note_id" value="{{ post.id }}">
+                                            <input type="text" name="commenter_name" placeholder="Your Name*">
+                                            <!-- Input field for commenter's name -->
+                                            <div class="form-group mt-3">
+                                                <textarea name="content" rows="2" placeholder="Add a comment*"></textarea>
+                                            </div>
+                                            <div style="position: relative; z-index: 1;" class="form-group mt-3">
+                                                <button type="submit" class="btn btn-primary" style="background: #437d9c;">Comment</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
