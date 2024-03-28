@@ -2,10 +2,24 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<h2 class="animate__animated animate__fadeInDown" style="font-family: 'Roboto', sans-serif; font-weight: bold;">Writing Space </h2>
+
+<div class="author-info">
+    {% if user.avatar_filename %}
+    <img src="{{ url_for('static', filename='avatars/' + user.avatar_filename) }}" alt="User Avatar" class="rounded-circle avatar-sm"> {% else %}
+    <img src="{{ url_for('static', filename='img/default_avatar.png') }}" alt="Default Avatar" class="rounded-circle avatar-sm"> {% endif %}
+    <p>{{ current_user.first_name }}</p>
+</div>
+<style>
+    .avatar-sm {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
 <!-- Card for the note input form -->
 <div class="card mt-lg-5">
     <div class="card-body">
+
         <!-- Form for submitting a new note -->
         <form method="POST" enctype="multipart/form-data">
             <!-- Input field for entering the note title -->
