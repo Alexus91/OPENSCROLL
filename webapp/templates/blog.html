@@ -93,6 +93,16 @@
                                 <div class="card" width="90px">
                                     <div class="card-body">
                                         <!-- Display the public post content -->
+                                        <div class="author-info">
+                                            <img src="{{ url_for('static', filename='img/default_avatar.png') }}" alt="Default Avatar" class="rounded-circle avatar-sm">
+                                        </div>
+                                        <style>
+                                            .avatar-sm {
+                                                width: 50px;
+                                                height: 50px;
+                                            }
+                                        </style>
+
                                         <h5>Author: {{ authors[post.id] }}</h5>
                                         <h1>{{ post.title }}</h1>
                                         <p style="font-family: 'Roboto', Helvetica">
