@@ -1,9 +1,8 @@
-{% extends "base.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
+{% extends "blog.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<h2 class="animate__animated animate__fadeInDown">Writing Space </h2>
-
+<h2 class="animate__animated animate__fadeInDown" style="font-family: 'Roboto', sans-serif; font-weight: bold;">Writing Space </h2>
 <!-- Card for the note input form -->
 <div class="card mt-lg-5">
     <div class="card-body">
@@ -22,13 +21,12 @@
                 <input type="file" name="image" id="image" class="form-control">
             </div>
             <!-- Submit button aligned to the right -->
-            <div class="text-end">
-                <button type="submit" class="btn-get-started animate__animated animate__fadeInUp" style="background: #549bc2;">Post</button>
+            <div class="form-group mt-md-2">
+                <button type="submit" class="btn btn-primary" style="background: #437d9c; ">Post</button>
             </div>
         </form>
     </div>
 </div>
-
 
 <!-- List of notes displayed as a flush list group -->
 <ul class="list-group list-group-flush" id="notes">
@@ -39,27 +37,21 @@
         <!-- Card for displaying the note content -->
         <div class="card">
             <div class="card-body">
+                {{ note.data }} {% if note.image_data %}
+                <img src="data:image/png;base64,{{ note.image_data }}" class="img-fluid mb-3" alt="Post Image"> {% endif %}
                 <!-- Display the note content -->
-                {{ note.data }}
             </div>
             <!-- Trigger the deleteNote JavaScript function when clicking on the note -->
-            <div style="position: relative; z-index: 1;">
-                <a href="#" onclick="deleteNote({{ note.id }})" class="btn-get-started " style="background: #b91e45;">Delete</a>
-            </div>
+            <div class="card-footer">
+                <button class="btn btn-danger" style="font-size: 10px;" onclick="deleteNote({{ note.id }})">Delete</button>
 
+            </div>
         </div>
     </li>
     {% endfor %}
 </ul>
 
 <!-- End #main -->
-
 </section>
 </div>
-
-
 {% endblock %}
-</main>
-</body>
-
-</html>
