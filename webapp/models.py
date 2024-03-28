@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
+    avatar_url = db.Column(db.String(255))  # Add a field to store the avatar URL
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note', backref='user', lazy=True)
 
@@ -37,5 +38,3 @@ class Like(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
-
-
