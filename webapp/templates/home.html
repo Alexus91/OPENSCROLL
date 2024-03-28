@@ -1,8 +1,11 @@
-{% extends "blog.html" %} {% block title %}Home - OPENSCROLL{% endblock %} {% block content %}
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% extends "blog.html" %} {% block title %}OPENSCROLL - Home{% endblock %} {% block content_title %}
+<!-- Writer Section -->
+<div class="d-flex justify-content-between align-items-center" style="font-size: 100px;">
+    <h2>Writer Section</h2>
+</div>
+{% endblock %} {% block content %}
 
-
+<!-- Writer section -->
 <div class="author-info">
     {% if current_user.avatar_filename %}
     <img src="{{ url_for('static', filename='avatars/' + current_user.avatar_filename) }}" alt="User Avatar" class="rounded-circle avatar-sm"> {% else %}
@@ -20,7 +23,6 @@
 <!-- Card for the note input form -->
 <div class="card mt-lg-5">
     <div class="card-body">
-
         <!-- Form for submitting a new note -->
         <form method="POST" enctype="multipart/form-data">
             <!-- Input field for entering the note title -->
@@ -59,14 +61,9 @@
             <!-- Trigger the deleteNote JavaScript function when clicking on the note -->
             <div class="card-footer">
                 <button class="btn btn-danger" style="font-size: 10px;" onclick="deleteNote({{ note.id }})">Delete</button>
-
             </div>
         </div>
     </li>
     {% endfor %}
 </ul>
-
-<!-- End #main -->
-</section>
-</div>
 {% endblock %}

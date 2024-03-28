@@ -69,32 +69,23 @@
         <section class="breadcrumbs">
             <div class="container">
 
-                <div class="d-flex justify-content-between align-items-center " style=" font-size: 100px">
+                {% block content_title %}
+                <div class="d-flex justify-content-between align-items-center" style="font-size: 100px;">
                     <h2>News</h2>
                 </div>
+                {% endblock %}
 
             </div>
         </section>
-        <div class="carousel-item active">
-            <section id="blog" class="blog">
-                <div class="container accordion-button">
-                    <div class="row">
-                        <div class="row-cols-md-0">
-                            <main id="main">
-                                <!-- Blog section content goes here -->
-                                {% block content %} {% endblock %}
-                            </main>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+
         <!-- End Blog Section -->
         <div class="carousel-item active">
             <section id="blog" class="blog">
                 <div class="container accordion-button">
                     <div class="row">
                         <div class="row-cols-md-0">
+                            {% block content %} {% endblock %}
+
                             <!-- Loop through public posts -->
                             {% for post in public_posts|reverse %}
                             <div class="note-container">
