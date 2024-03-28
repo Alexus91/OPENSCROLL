@@ -115,10 +115,9 @@
                                             <!-- Display the commenter's name along with the comment content -->
                                             <p>
                                                 <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }}
-                                                <span class="like-count">{{ comment.likes | length }}</span>
+
                                                 <!-- Button to like/unlike the comment -->
-                                                {% if current_user.is_authenticated %}
-                                                <button class="like-btn" data-comment-id="{{ comment.id }}">Like</button> {% endif %}
+                                                {% if current_user.is_authenticated %} {% endif %}
 
                                             </p>
 
