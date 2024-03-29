@@ -1,7 +1,7 @@
 #  OPENSCROLL: 
 Express Freely
 ## Introduction
-[Iscreen shot of the landing page ](/webapp/static/img/Screenshot.png)
+[Iscreen shot of the landing page ](/webapp/static/img/Screenshot .png)
 
 Open-Scroll Is a platform designed to facilitate allowing users to share their thoughts, ideas, and experiences without constraints. With a focus on freedom of expression. the platform provide a space for individuals to connect, engage, and collaborate on a wide range of topics. Whether it's sharing personal stories, discussing current events, or exploring niche interests, OpenScroll empowers users to express themselves openly and authentically. 
 ## Key Features
