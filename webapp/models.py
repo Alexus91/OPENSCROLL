@@ -6,7 +6,7 @@ class Note(db.Model):
     """Represents a note in the application."""
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))  # Add the title column
+    title = db.Column(db.String(100))  
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     image_data = db.Column(db.Text)
@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    avatar_url = db.Column(db.String(255))  # Add a field to store the avatar URL
+    avatar_url = db.Column(db.String(255))  
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note', backref='user', lazy=True)
 
@@ -30,7 +30,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(1000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
-    commenter_name = db.Column(db.String(150))  # New field for commenter's name
+    commenter_name = db.Column(db.String(150))
     note_id = db.Column(db.Integer, db.ForeignKey('note.id'))
     likes = db.relationship('Like', backref='comment', lazy=True)
 class Like(db.Model):

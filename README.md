@@ -1,7 +1,9 @@
 #  OPENSCROLL: 
 Express Freely
 ## Introduction
-Welcome to OPENSCROLL, a cutting-edge blogging platform that empowers users to express themselves freely and connect with a like-minded community. OPENSCROLL is designed to provide a seamless and privacy-focused environment for users to share their thoughts, stories, and ideas without limitations.
+[Iscreen shot of the landing page ](/webapp/static/img/image_name.jpg)
+
+Open-Scroll Is a platform designed to facilitate allowing users to share their thoughts, ideas, and experiences without constraints. With a focus on freedom of expression. the platform provide a space for individuals to connect, engage, and collaborate on a wide range of topics. Whether it's sharing personal stories, discussing current events, or exploring niche interests, OpenScroll empowers users to express themselves openly and authentically. 
 ## Key Features
 User-Friendly Interface: Enjoy a clean and intuitive interface that makes blogging a delightful experience.
 Privacy Focus: OPENSCROLL  prioritizes user privacy, ensuring a secure environment for self-expression.
@@ -12,6 +14,15 @@ OPENSCROLL leverages the following technologies to deliver a robust and dynamic 
 Python, HTML, CSS, JavaScript
 Flask, Bootstrap
 SQLAlchemy, SQLite
+### Third-Party Services
+
+    Flask Extensions:
+        Flask-SQLAlchemy:
+            Flask-SQLAlchemy is integrated into OPENSCROLL to simplify database operations and interact with the SQLite database using object-relational mapping (ORM). It streamlines the process of defining database models and executing database queries within the Flask application.
+        Flask-Login:
+            Flask-Login is utilized for user authentication and session management in OPENSCROLL. It enables users to securely log in to their accounts, access protected resources, and maintain their session state throughout their interactions with the platform.
+        Flask-WTF:
+            Flask-WTF is employed for form handling and validation in OPENSCROLL. It provides tools and utilities for generating and processing web forms, ensuring that user input is validated and sanitized before being processed by the application.
 ## Getting Started
 ### Clone the Repository:
 git clone https://github.com/Alexus91/OPENSCROLL.git

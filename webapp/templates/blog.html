@@ -124,10 +124,7 @@
                                         <li class="comment">
                                             <!-- Display the commenter's name along with the comment content -->
                                             <p>
-                                                <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }}
-
-                                                <!-- Button to like/unlike the comment -->
-                                                {% if current_user.is_authenticated %} {% endif %}
+                                                <h6>{{ comment.commenter_name }}:</h6> {{ comment.content }} {% if current_user.is_authenticated %} {% endif %}
 
                                             </p>
 
@@ -162,7 +159,7 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // Get all like buttons
+                // like function and unlike preapering the implement it in the next days
                 var likeButtons = document.querySelectorAll(".like-btn");
 
                 // Add click event listener to each like button

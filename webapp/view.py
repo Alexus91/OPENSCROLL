@@ -153,10 +153,8 @@ def blog():
     Returns:
         str: Rendered blog page HTML.
     """
-    # Fetch public posts
     public_posts = Note.query.all()
 
-    # Fetch authors' names for each post
     authors = {}
     for post in public_posts:
         author = User.query.get(post.user_id)
