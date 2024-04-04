@@ -157,44 +157,7 @@
                 </div>
             </section>
         </div>
-        <!--<script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // like function and unlike preapering the implement it in the next days
-                var likeButtons = document.querySelectorAll(".like-btn");
 
-                // Add click event listener to each like button
-                likeButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        // Get the comment ID
-                        var commentId = button.getAttribute("data-comment-id");
-
-                        // Send a request to your server to record the like
-                        fetch("/like-comment", {
-                            method: "POST",
-                            body: JSON.stringify({
-                                commentId: commentId
-                            }),
-                        }).then(function(response) {
-                            // Handle the response as needed
-                            if (response.ok) {
-                                // Update the UI to reflect the like
-                                button.textContent = "Liked";
-                                button.disabled = true;
-
-                                // Increment the like count in the UI
-                                var likeCountSpan = button.previousElementSibling; // Assuming the span comes before the button
-                                likeCountSpan.textContent = parseInt(likeCountSpan.textContent) + 1;
-                            } else {
-                                // Handle errors
-                                console.error("Failed to like comment");
-                            }
-                        }).catch(function(error) {
-                            console.error("Error:", error);
-                        });
-                    });
-                });
-            });
-        </script> i will implement later-->
 
 
 

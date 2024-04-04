@@ -47,4 +47,5 @@ Join the OPENSCROLL community and stay updated on the latest features and develo
 Connect with us on social media:
 - [Twitter](https://twitter.com/kamalfadlll)
 - [LinkedIn](https://www.linkedin.com/in/kamal-fadl-602b97191)
+
 Unleash your creativity with OPENSCROLL– where every voice matters, and every story deserves to be heard!
