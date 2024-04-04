@@ -144,21 +144,7 @@
         <!-- Template Main JS File -->
         <script src="static/js/main.js "></script>
 
-        {% block javascript %}
-        <script type="text/javascript">
-            function deleteNote(noteId) {
-                // Send a POST request to delete a note and redirect to the home page
-                fetch("/delete-note", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        noteId: noteId
-                    }),
-                }).then((_res) => {
-                    window.location.href = "/";
-                });
-            }
-        </script>
-        {% endblock %}
+
     </main>
 </body>
 
