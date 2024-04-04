@@ -30,8 +30,7 @@ OPENSCROLL leverages the following technologies to deliver a robust and dynamic 
 - **Flask-Login:**
   - Flask-Login is utilized for user authentication and session management in OPENSCROLL. It enables users to securely log in to their accounts, access protected resources, and maintain their session state throughout their interactions with the platform.
 
-- **Flask-WTF:**
-  - Flask-WTF is employed for form handling and validation in OPENSCROLL. It provides tools and utilities for generating and processing web forms, ensuring that user input is validated and sanitized before being processed by the application.
+
 
 ## Getting Started
 
